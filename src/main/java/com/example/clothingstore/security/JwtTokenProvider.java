@@ -40,7 +40,7 @@ public class JwtTokenProvider {
 
         return Jwts.builder()
                 .setSubject(username)
-                .claim("roles", roles) // ✅ Хранение ролей в токене
+                .claim("roles", roles)
                 .setIssuedAt(now)
                 .setExpiration(expiryDate)
                 .signWith(getSigningKey(), SignatureAlgorithm.HS256)

@@ -1,0 +1,21 @@
+stages:
+  - build
+  - lint
+
+variables:
+  MAVEN_OPTS: "-Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository"
+  MAVEN_CLI_OPTS: "--batch-mode --errors --fail-at-end --show-version"
+
+cache:
+  paths:
+    - .m2/repository/
+
+build_project:
+  stage: build
+  script:
+    - mvn $MAVEN_CLI_OPTS clean compile
+
+lint_check:
+  stage: lint
+  script:
+    - mvn $MAVEN_CLI_OPTS checkstyle:check || true
