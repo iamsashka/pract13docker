@@ -44,4 +44,4 @@ jobs:
       - name: Run Checkstyle
         run: mvn ${{ env.MAVEN_CLI_OPTS }} checkstyle:check || true
         env:
-          MAVEN_CLI_OPTS: --batch-mode --errors --fail-at-end --show-versio
+          MAVEN_CLI_OPTS: --batch-mode --errors --fail-at-end --show-version
